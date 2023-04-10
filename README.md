@@ -32,21 +32,24 @@ cd gdrive-bot
 ```sh 
 pip3 install -r requirements.txt
 ```
+```sh 
+python3 -m bot
+```
 
 ### Configuration
-### Add Values Bot Folder Root .env To Set This Environment Variables 
+### Add Environment Variables Values .env Directory gdrive-bot Folder   
 
-BOT_TOKEN - Get it by contacting to [BotFather](https://t.me/botfather)
-APP_ID - Get it by creating app on [my.telegram.org](https://my.telegram.org/apps)
-API_HASH - Get it by creating app on [my.telegram.org](https://my.telegram.org/apps)
-SUDO_USERS - List of Telegram User ID of sudo users, seperated by space.
-SUPPORT_CHAT_LINK - Telegram invite link of support chat.
-DATABASE_URL - Postgres database url.
-DOWNLOAD_DIRECTORY - Custom path for downloads. Must end with a forward `/` slash. (Default to `./downloads/`)
-G_DRIVE_CLIENT_ID - G_DRIVE_CLIENT_ID
-G_DRIVE_CLIENT_SECRET - G_DRIVE_CLIENT_SECRET
+- BOT_TOKEN - Get it by contacting to [BotFather](https://t.me/botfather)
+- APP_ID - Get it by creating app on [my.telegram.org](https://my.telegram.org/apps)
+- API_HASH - Get it by creating app on [my.telegram.org](https://my.telegram.org/apps)
+- SUDO_USERS - List of Telegram User ID of sudo users, seperated by space.
+- SUPPORT_CHAT_LINK - Telegram invite link of support chat.
+- DATABASE_URL - Postgres database url.
+- DOWNLOAD_DIRECTORY - Custom path for downloads. Must end with a forward `/` slash. (Default to `./downloads/`)
+- G_DRIVE_CLIENT_ID - G_DRIVE_CLIENT_ID
+- G_DRIVE_CLIENT_SECRET - G_DRIVE_CLIENT_SECRET
 
 ### Deploy And Bot Run Command 
 
-### python3 -m bot
+### 
 
