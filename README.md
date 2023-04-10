@@ -1,7 +1,3 @@
-# Google Drive Uploader Telegram Bot
-**A Telegram bot to upload files from Telegram or Direct links to Google Drive.**
-- Find it on Telegram as [Google Drive Uploader](https://t.me/uploadgdrivebot)
-
 ## Features
 - [X] Telegram files support.
 - [X] Direct Links support.
@@ -19,10 +15,6 @@
 - [ ] Update command.
 
 ## Deploying
-
-### Deploy on [Heroku](https://heroku.com)
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
-
 ### Installation
 - Install required modules.
 ```sh
@@ -42,31 +34,19 @@ pip3 install -r requirements.txt
 ```
 
 ### Configuration
-**There are Ways for configuring this bot.**
-1. Add values to Environment Variables. And add a `ENV` var to Anything to enable it.
-
 ### Add Values Bot Folder Root .env To Set This Environment Variables 
 
-- `BOT_TOKEN` - Get it by contacting to [BotFather](https://t.me/botfather)
-- `APP_ID` - Get it by creating app on [my.telegram.org](https://my.telegram.org/apps)
-- `API_HASH` - Get it by creating app on [my.telegram.org](https://my.telegram.org/apps)
-- `SUDO_USERS` - List of Telegram User ID of sudo users, seperated by space.
-- `SUPPORT_CHAT_LINK` - Telegram invite link of support chat.
-- `DATABASE_URL` - Postgres database url.
-- `DOWNLOAD_DIRECTORY` - Custom path for downloads. Must end with a forward `/` slash. (Default to `./downloads/`)
-- `G_DRIVE_CLIENT_ID` - G_DRIVE_CLIENT_ID
-- `G_DRIVE_CLIENT_SECRET` - G_DRIVE_CLIENT_SECRET
+BOT_TOKEN - Get it by contacting to [BotFather](https://t.me/botfather)
+APP_ID - Get it by creating app on [my.telegram.org](https://my.telegram.org/apps)
+API_HASH - Get it by creating app on [my.telegram.org](https://my.telegram.org/apps)
+SUDO_USERS - List of Telegram User ID of sudo users, seperated by space.
+SUPPORT_CHAT_LINK - Telegram invite link of support chat.
+DATABASE_URL - Postgres database url.
+DOWNLOAD_DIRECTORY - Custom path for downloads. Must end with a forward `/` slash. (Default to `./downloads/`)
+G_DRIVE_CLIENT_ID - G_DRIVE_CLIENT_ID
+G_DRIVE_CLIENT_SECRET - G_DRIVE_CLIENT_SECRET
 
 ### Deploy And Bot Run Command 
-```sh 
-python3 -m bot
-```
 
-## Credits
-- [Dan](https://github.com/delivrance) for creating [PyroGram](https://pyrogram.org)
-- [Spechide](https://github.com/Spechide) for [gDriveDB.py](./bot/helpers/sql_helper/gDriveDB.py)
-- [Shivam Jha](https://github.com/lzzy12) for [Clone Feature](./bot/helpers/gdrive_utils/gDrive.py) from [python-aria-mirror-bot](https://github.com/lzzy12/python-aria-mirror-bot)
+### python3 -m bot
 
-## Copyright & License
-- Copyright (©) 2020 by [Adnan Ahmad](https://github.com/viperadnan-git)
-- Licensed under the terms of the [GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007](./LICENSE)
