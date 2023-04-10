@@ -14,7 +14,7 @@
 - [ ] Service account support.
 - [ ] Update command.
 
-## Deploying
+## Deployment Own VPS
 ### Installation
 - Install required modules.
 ```sh
@@ -49,7 +49,9 @@ python3 -m bot
 - G_DRIVE_CLIENT_ID - G_DRIVE_CLIENT_ID
 - G_DRIVE_CLIENT_SECRET - G_DRIVE_CLIENT_SECRET
 
-### Deploy And Bot Run Command 
+### Run Command 
+```sh 
+python3 -m bot
+```
 
-### 
 
