@@ -54,6 +54,8 @@ pip3 install -r requirements.txt
 - `SUPPORT_CHAT_LINK` - Telegram invite link of support chat.
 - `DATABASE_URL` - Postgres database url.
 - `DOWNLOAD_DIRECTORY` - Custom path for downloads. Must end with a forward `/` slash. (Default to `./downloads/`)
+- `G_DRIVE_CLIENT_ID` - G_DRIVE_CLIENT_ID
+- `G_DRIVE_CLIENT_SECRET` - G_DRIVE_CLIENT_SECRET
 
 ### Deploy 
 ```sh 
