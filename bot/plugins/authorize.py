@@ -1,7 +1,7 @@
 import re
 import json
 from httplib2 import Http
-from bot import LOGGER
+from bot import LOGGER, G_DRIVE_CLIENT_ID, G_DRIVE_CLIENT_SECRET
 from bot.config import Messages
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
@@ -14,10 +14,8 @@ from bot.helpers.utils import CustomFilters
 
 
 OAUTH_SCOPE = "https://www.googleapis.com/auth/drive"
-REDIRECT_URI = "urn:ietf:wg:oauth:2.0:oob"
-G_DRIVE_DIR_MIME_TYPE = "application/vnd.google-apps.folder"
-G_DRIVE_CLIENT_ID = "202264815644.apps.googleusercontent.com"
-G_DRIVE_CLIENT_SECRET = "X4Z3ca8xfWDb1Voo-F9a7ZxJ"
+REDIRECT_URI = "http://localhost/"
+
 flow = None
 
 @Client.on_message(filters.private & filters.incoming & filters.command(BotCommands.Authorize))
@@ -35,7 +33,10 @@ async def _auth(client, message):
               G_DRIVE_CLIENT_ID,
               G_DRIVE_CLIENT_SECRET,
               OAUTH_SCOPE,
-              redirect_uri=REDIRECT_URI
+              redirect_uri=REDIRECT_URI,
+              response_type='code',
+              access_type='offline',
+              prompt='consent'
       )
       auth_url = flow.step1_get_authorize_url()
       LOGGER.info(f'AuthURL:{user_id}')
@@ -54,7 +55,7 @@ def _revoke(client, message):
   user_id = message.from_user.id
   try:
     gDriveDB._clear(user_id)
-    LOGGER.info(f'Revoke:{user_id}')
+    LOGGER.info(f'Revoked:{user_id}')
     message.reply_text(Messages.REVOKED, quote=True)
   except Exception as e:
     message.reply_text(f"**ERROR:** ```{e}```", quote=True)
@@ -62,16 +63,17 @@ def _revoke(client, message):
 
 @Client.on_message(filters.private & filters.incoming & filters.text & ~CustomFilters.auth_users)
 async def _token(client, message):
-  token = message.text.split()[-1]
+  code = message.text.split("?code=")[1].split("&")[0]
+  token = code.split()[-1]
   WORD = len(token)
-  if WORD == 57 and token[1] == "/":
+  if WORD == 73 and token[1] == "/":
     creds = None
     global flow
     if flow:
       try:
         user_id = message.from_user.id
         sent_message = await message.reply_text("🕵️**Checking received code...**", quote=True)
-        creds = flow.step2_exchange(message.text)
+        creds = flow.step2_exchange(code)
         gDriveDB._set(user_id, creds)
         LOGGER.info(f'AuthSuccess: {user_id}')
         await sent_message.edit(Messages.AUTH_SUCCESSFULLY)
@@ -81,4 +83,4 @@ async def _token(client, message):
       except Exception as e:
         await sent_message.edit(f"**ERROR:** ```{e}```")
     else:
-        await message.reply_text(Messages.FLOW_IS_NONE, quote=True)
+        await sent_message.edit(Messages.FLOW_IS_NONE, quote=True)
