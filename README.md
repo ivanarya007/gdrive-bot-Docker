@@ -57,7 +57,7 @@ pip3 install -r requirements.txt
 - `G_DRIVE_CLIENT_ID` - G_DRIVE_CLIENT_ID
 - `G_DRIVE_CLIENT_SECRET` - G_DRIVE_CLIENT_SECRET
 
-### Deploy 
+### Deploy And Bot Run Command 
 ```sh 
 python3 -m bot
 ```
