@@ -45,7 +45,7 @@ pip3 install -r requirements.txt
 **There are Ways for configuring this bot.**
 1. Add values to Environment Variables. And add a `ENV` var to Anything to enable it.
 
-### Add Values .env Folder Root To Environment Variables Set
+### Add Values Bot Folder Root .env To Set This Environment Variables 
 
 - `BOT_TOKEN` - Get it by contacting to [BotFather](https://t.me/botfather)
 - `APP_ID` - Get it by creating app on [my.telegram.org](https://my.telegram.org/apps)
