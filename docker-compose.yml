@@ -1,0 +1,27 @@
+version: '3.9'
+
+services:
+  gdrive-bot:
+    build: .
+    ports:
+      - "8080:80"
+    env_file:
+      - .env
+    depends_on:
+      - postgres
+    links:
+      - postgres
+    command: ["python3", "-m", "bot"]
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_HOST: 127.0.0.1
+      POSTGRES_DB: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data/
+
+volumes:
