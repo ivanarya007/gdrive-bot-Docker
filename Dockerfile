@@ -1,22 +1,23 @@
 # Base image
-FROM ubuntu:latest
+FROM python:3.9-slim-buster
 
 # Install required modules
-RUN apt-get update && \
-    apt-get install -y git python3 python3-pip ffmpeg && \
-    rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y git python3 ffmpeg build-essential libpq-dev
 
-# Clone git repository
-RUN git clone https://github.com/ivanarya007/gdrive-bot.git
-
-# Change directory
+# Set the working directory
 WORKDIR /gdrive-bot
 
-# Copy .env file
-COPY .env .
+# Copy the bot files
+COPY . .
 
-# Install requirements
+# Install requirements with pip3
 RUN pip3 install -r requirements.txt
 
-# Run command
+# Set environment variables from .env file
+ENV $(cat .env | xargs)
+
+# Expose the port for the bot
+EXPOSE 8080:80
+
+# Start the bot
 CMD ["python3", "-m", "bot"]
