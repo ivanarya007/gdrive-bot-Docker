@@ -14,6 +14,11 @@
 - [ ] Service account support.
 - [ ] Update command.
 
+## Installations Docker 
+
+- docker-compose up --build -d.
+```sh
+
 ## Deployment Own VPS
 ### Installation
 - Install required modules.
