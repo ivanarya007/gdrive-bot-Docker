@@ -11,13 +11,14 @@ services:
       - postgres
     links:
       - postgres
+    environment:
+      POSTGRES_URI: postgresql://myuser:mypassword@postgres:5432/postgres
     command: ["python3", "-m", "bot"]
   postgres:
     image: postgres
     environment:
       POSTGRES_USER: myuser
       POSTGRES_PASSWORD: mypassword
-      POSTGRES_HOST: 127.0.0.1
       POSTGRES_DB: postgres
     ports:
       - "5432:5432"
@@ -25,3 +26,4 @@ services:
       - postgres-data:/var/lib/postgresql/data/
 
 volumes:
+  postgres-data:
